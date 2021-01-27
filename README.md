@@ -43,5 +43,5 @@ However, we are happy to include the population data outside the framework or da
 
 ## License
 
-We made the processed dataset available under Creative Commons Attribution 4.0 International, CC-BY-4.0
+Creative Commons Attribution 4.0 International, CC-BY-4.0
 
