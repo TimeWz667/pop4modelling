@@ -12,16 +12,15 @@ To transform the data into simulation-friendly format, please find out one of th
 ## Data format
 
 #### Birth
-The birth data were the time-series of number of births by single year.
+The fertality rate data were the time-series of births per woman by single year.
 
-- **/Births.csv**
+- **/FertSpline.csv**
 
 #### Death
 The death data were the crude death rates by single year, single age, and sex. The rates were defined as the numbers of deaths over the mid-year population estimates. 
 
-- **/DeaT.csv**: total death rate
-- **/DeaF.csv**: female death rate
-- **/DeaM.csv**: male death rate
+- **/DeaSplineF.csv**: female death rate
+- **/DeaSplineM.csv**: male death rate
 
 #### Population size
 The population data were the population sizes by single year, single age, and sex. 
