@@ -64,17 +64,17 @@ for (country in unique(raw_death$Location)) {
   pop_year_age <- matrix(sel_pop$PopFemale, length(years), 101)
   colnames(pop_year_age) <- 0:100
   pop_year_age <- cbind(Time = years, pop_year_age * 1000)
-  write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopF.csv")
+  #write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopF.csv")
                         
   pop_year_age <- matrix(sel_pop$PopMale, length(years), 101)
   colnames(pop_year_age) <- 0:100
   pop_year_age <- cbind(Time = years, pop_year_age * 1000)
-  write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopM.csv")
+  #write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopM.csv")
   
   pop_year_age <- matrix(sel_pop$PopTotal, length(years), 101)
   colnames(pop_year_age) <- 0:100
   pop_year_age <- cbind(Time = years, pop_year_age * 1000)
-  write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopT.csv")
+  #write_csv(as_tibble(pop_year_age), path_out + country_out + "/PopT.csv")
   
   
   ##### Birth -----
@@ -94,14 +94,14 @@ for (country in unique(raw_death$Location)) {
   for (i in 1:length(years)) {
     ti <- years[i]
     fert <- sel_fert %>% filter(Ti == ti)
-    ext_age[i, 15:50] <- spline(fert$A, fert$lf, xout = 16:51)$y
+    ext_age[i, 15:49] <- spline(fert$A, fert$lf, xout = 16:50)$y
   }
   
   y_mid <- years
   years <- 1950:2099 + 0.5
   ext_year_age <- matrix(0, length(years), 101)
   
-  for (i in 16:51) {
+  for (i in 16:49) {
     ext_year_age[, i] <- exp(spline(y_mid, ext_age[, i], xout = years)$y)
   }
   
@@ -157,7 +157,7 @@ for (country in unique(raw_death$Location)) {
   ext_year_age <- cbind(Time = 1950:2099, exp(ext_year_age))
   
   
-  write_csv(as_tibble(ext_year_age), path_out + country_out + "/DeaSplineM.csv")
+  #write_csv(as_tibble(ext_year_age), path_out + country_out + "/DeaSplineM.csv")
   
   
   sel_death <- raw_death %>%
@@ -191,7 +191,7 @@ for (country in unique(raw_death$Location)) {
   ext_year_age <- cbind(Time = 1950:2099, exp(ext_year_age))
   
   
-  write_csv(as_tibble(ext_year_age), path_out + country_out + "/DeaSplineF.csv")
+  #write_csv(as_tibble(ext_year_age), path_out + country_out + "/DeaSplineF.csv")
 }
 
 
